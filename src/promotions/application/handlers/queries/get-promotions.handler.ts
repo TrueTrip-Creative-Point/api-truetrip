@@ -13,16 +13,14 @@ export class GetPromotionsHandler implements IQueryHandler<GetPromotionsQuery> {
     const sql=`
     SELECT 
       id,
-      title as title,
-      content as content,
-      promotionStart_Date as PromotionStartDate,
-      promotionEnd_Date as PromotionEndDate,
+      title ,
+      content, 
+      promotionStart_Date as startdate,
+      promotionEnd_Date as endate,
       partnerId
   
     FROM 
       promotions
-    ORDER BY
-      id
     `;
     const ormPromotions = await manager.query(sql);
     if (ormPromotions.length <= 0) {
@@ -33,10 +31,9 @@ export class GetPromotionsHandler implements IQueryHandler<GetPromotionsQuery> {
       promotionDto.id=Number(ormPromotions.id);
       promotionDto.title=ormPromotions.title;
       promotionDto.content=ormPromotions.content;
-      promotionDto.promotionStartDate=ormPromotions.promotionStartDate;
-      promotionDto.promotionEndDate=ormPromotions.promotionEndDate;
+      promotionDto.promotionStartDate=ormPromotions.startdate;
+      promotionDto.promotionEndDate=ormPromotions.endate;
       promotionDto.partnerId=Number(ormPromotions.partnerId);
-
       return promotionDto;
     });
     return promotions;

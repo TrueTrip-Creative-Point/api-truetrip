@@ -25,19 +25,19 @@ export class PromotionsApplicationService{
       return Result.error(notification);
     }
     const createPromotionCommand:CreatePromotionCommand=new CreatePromotionCommand(
-      createPromotionRequestDto.promotionStartDate,
-      createPromotionRequestDto.promotionEndDate,
       createPromotionRequestDto.title,
       createPromotionRequestDto.content,
+      createPromotionRequestDto.promotionStartDate,
+      createPromotionRequestDto.promotionEndDate,
       createPromotionRequestDto.partnerId
     );
-    const promotionId = await this.commandBus.execute(CreatePromotionCommand);
+    const promotionId = await this.commandBus.execute(createPromotionCommand);
     const createPromotionResponseDto:CreatePromotionResponseDto=new CreatePromotionResponseDto(
       promotionId,
-      createPromotionRequestDto.promotionStartDate,
-      createPromotionRequestDto.promotionEndDate,
       createPromotionRequestDto.title,
       createPromotionRequestDto.content,
+      createPromotionRequestDto.promotionStartDate,
+      createPromotionRequestDto.promotionEndDate,
       createPromotionRequestDto.partnerId
     );
     return Result.ok(createPromotionResponseDto);

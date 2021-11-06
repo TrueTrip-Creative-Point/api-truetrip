@@ -22,7 +22,7 @@ export class Promotion extends AggregateRoot{
     this.partnerId=partnerId;
   }
   public register() {
-    const event = new PromotionRegisteredEvent(this.id.getValue(),this.promotionDate.getPromotionStartDate(),this.promotionDate.getPromotionEndDate(), this.title.getValue(), this.content.getValue(),this.partnerId.getValue());
+    const event = new PromotionRegisteredEvent(this.id.getValue(),this.title.getValue(),this.content.getValue(),this.promotionDate.getPromotionStartDate(),this.promotionDate.getPromotionEndDate(),this.partnerId.getValue());
     this.apply(event);
   }
 

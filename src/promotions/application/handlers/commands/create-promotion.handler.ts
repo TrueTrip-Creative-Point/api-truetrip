@@ -34,7 +34,7 @@ export class CreatePromotionHandler
     if (contentResult.isFailure()) {
       return 0;
     }
-    const DateResult: Result<AppNotification, PromotionDate> = PromotionDate.create(command.promotionStartDate,command.promotionStartDate);
+    const DateResult: Result<AppNotification, PromotionDate> = PromotionDate.create(command.promotionStartDate,command.promotionEndDate);
     if (DateResult.isFailure()) {
       return 0;
     }

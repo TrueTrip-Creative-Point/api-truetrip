@@ -17,37 +17,34 @@ export class CreatePromotionValidator {
     createPromotionRequestDto:CreatePromotionRequestDto
   ):Promise<AppNotification>{
     let notification: AppNotification = new AppNotification();
-
-
-    let title: string = createPromotionRequestDto.title.trim();
+    const title: string = createPromotionRequestDto.title.trim();
 
     if (title.length <= 0) {
       notification.addError('Promotion Title  is required', null);
     }
-    let content: string = createPromotionRequestDto.content.trim();
+    const content: string = createPromotionRequestDto.content.trim();
 
     if (content.length <= 0) {
       notification.addError('Promotion content  is required', null);
     }
-    let promotionStartDate: string = createPromotionRequestDto.promotionStartDate.trim();
+    const promotionStartDate: string = createPromotionRequestDto.promotionStartDate.trim();
 
     if (promotionStartDate.length <= 0) {
       notification.addError('Promotion StartDate  is required', null);
     }
-    let promotionEndDate: string = createPromotionRequestDto.promotionEndDate.trim();
+    const promotionEndDate: string = createPromotionRequestDto.promotionEndDate.trim();
 
     if (promotionEndDate.length <= 0) {
       notification.addError('Promotion EndDate  is required', null);
     }
-    let partnerId: number = createPromotionRequestDto.partnerId;
 
+    const partnerId: number = createPromotionRequestDto.partnerId;
     if (partnerId===null) {
       notification.addError('Promotion partnerId  is required', null);
     }
     if(notification.hasErrors()){
-        return notification;
+      return notification;
     }
-    const promotion: PromotionTypeORM = await this.promotionRepository.createQueryBuilder().getOne();
 
     return notification;
   }

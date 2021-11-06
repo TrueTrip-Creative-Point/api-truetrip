@@ -10,17 +10,17 @@ export class promotionContent {
   public getValue(): string {
     return this.value;
   }
-  public static create(ruc: string): Result<AppNotification, promotionContent>
+  public static create(content: string): Result<AppNotification, promotionContent>
   {
     let notification: AppNotification = new AppNotification();
-    ruc = (ruc ?? "").trim();
-    if (ruc === "") {
+    content = (content ?? "").trim();
+    if (content === "") {
       notification.addError('content is required', null);
     }
 
     if (notification.hasErrors()) {
       return Result.error(notification);
     }
-    return Result.ok(new promotionContent(ruc));
+    return Result.ok(new promotionContent(content));
   }
 }
