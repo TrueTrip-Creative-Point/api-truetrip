@@ -1,6 +1,6 @@
 import { Traveler } from '../../domain/entities/traveler.entity';
-import { TravelerTypeORM } from '../../infrastructure/persitence/typeorm/entities/traveler.typeorm';
-import { TravelerIdTypeORM } from '../../infrastructure/persitence/typeorm/entities/traveler.id.typeorm';
+import { TravelerTypeORM } from '../../infrastructure/persistence/typeorm/entities/traveler.typeorm';
+import { TravelerIdTypeORM } from '../../infrastructure/persistence/typeorm/entities/traveler.id.typeorm';
 import { NameTypeORM } from '../../../common/infrastructure/persistence/typeorm/entities/name.typeorm';
 import { DniTypeORM } from '../../../common/infrastructure/persistence/typeorm/entities/dni.typeorm';
 import { PhoneNumberTypeORM } from '../../../common/infrastructure/persistence/typeorm/entities/phoneNumber.typeorm';

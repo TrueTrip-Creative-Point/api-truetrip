@@ -10,7 +10,7 @@ import { PhoneNumber } from '../../../domain/value-objects/phoneNumber.value';
 import { Email } from '../../../domain/value-objects/email.value';
 import { Result } from 'typescript-result';
 import { AppNotification } from '../../../../common/application/app.notification';
-import { TravelerTypeORM } from '../../../infrastructure/persitence/typeorm/entities/traveler.typeorm';
+import { TravelerTypeORM } from '../../../infrastructure/persistence/typeorm/entities/traveler.typeorm';
 import { Name } from '../../../../common/domain/value-objects/name.value';
 import { TravelerMapper } from '../../mappers/traveler.mapper';
 
@@ -33,11 +33,6 @@ export class RegisterTravelerHandler
     if (nameResult.isFailure()) {
       return 0;
     }
-
-
-
-
-
 
     const phoneNumberResult: Result<AppNotification, PhoneNumber> = PhoneNumber.create(command.phoneNumber);
     if (phoneNumberResult.isFailure()) {

@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { AppNotification } from 'src/common/application/app.notification';
 import { RegisterTravelerRequestDto } from '../dtos/request/register-traveler-request.dto';
 import { Repository } from 'typeorm';
-import { TravelerTypeORM } from '../../infrastructure/persitence/typeorm/entities/traveler.typeorm';
+import { TravelerTypeORM } from '../../infrastructure/persistence/typeorm/entities/traveler.typeorm';
 
 @Injectable()
 export class RegisterTravelerValidator {
