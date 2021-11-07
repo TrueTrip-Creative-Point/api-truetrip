@@ -1,5 +1,5 @@
 import { AggregateRoot } from "@nestjs/cqrs";
-import { TravelPackageIdTypeORM } from "../../../infraestracture/persistence/typeorm/entities/TravelPackage/travelPackage.id.typeorm";
+import { TravelPackageIdTypeORM } from "../../infrastructure/persistence/typeorm/entities/travelPackage.id.typeorm";
 import { TravelPackageId } from "../value-objects/travel-packageId";
 import { Amount_people } from "../value-objects/amount_people.value";
 import { Description } from "../value-objects/description.value";

@@ -1,7 +1,7 @@
 import { IQueryHandler, QueryHandler } from "@nestjs/cqrs";
-import { GetTravelPackageQuery } from "../../../queries/TravelPackage/get-travel-package.query";
+import { GetTravelPackageQuery } from "../../queries/get-travel-package.query";
 import { getManager } from "typeorm";
-import { GetTravelPackageDto } from "../../../dtos/queries/get-travel-package.dto";
+import { GetTravelPackageDto } from "../../dtos/queries/get-travel-package.dto";
 
 @QueryHandler(GetTravelPackageQuery)
 export class GetTravelPackageHandler implements IQueryHandler<GetTravelPackageQuery>{

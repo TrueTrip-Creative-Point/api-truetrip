@@ -1,14 +1,14 @@
 import { CommandHandler, EventPublisher, ICommandHandler } from "@nestjs/cqrs";
-import { RegisterTravelPackageCommand } from "../../../commands/TravelPackage/register-travel-package.command";
+import { RegisterTravelPackageCommand } from "../../commands/register-travel-package.command";
 import { InjectRepository } from "@nestjs/typeorm";
-import { TravelPackageTypeORM } from "../../../../infraestracture/persistence/typeorm/entities/TravelPackage/travelPackage";
+import { TravelPackageTypeORM } from "../../../infrastructure/persistence/typeorm/entities/travelPackage";
 import { Repository } from "typeorm";
-import { AppNotification } from "../../../../../common/application/app.notification";
-import { Description } from "../../../../domain/TravelPackage/value-objects/description.value";
+import { AppNotification } from "../../../../common/application/app.notification";
+import { Description } from "../../../domain/value-objects/description.value";
 import { Result } from "typescript-result";
-import { Amount_people } from "../../../../domain/TravelPackage/value-objects/amount_people.value";
-import { Promotion } from "../../../../domain/TravelPackage/value-objects/promotion.value";
-import { UrlImage } from "../../../../domain/TravelPackage/value-objects/url_image.value";
+import { Amount_people } from "../../../domain/value-objects/amount_people.value";
+import { Promotion } from "../../../domain/value-objects/promotion.value";
+import { UrlImage } from "../../../domain/value-objects/url_image.value";
 
 @CommandHandler(RegisterTravelPackageCommand)
 export class RegisterTravelPackageHandler

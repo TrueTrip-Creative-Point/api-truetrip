@@ -1,11 +1,11 @@
 import {Injectable} from '@nestjs/common'
 import { CommandBus } from "@nestjs/cqrs";
-import { RegisterTravelPackageValidator } from "../../validators/TravelPackage/travelPackage.validator";
-import { AppNotification } from "../../../../common/application/app.notification";
+import { RegisterTravelPackageValidator } from "../validators/travelPackage.validator"
+import { AppNotification } from "../../../common/application/app.notification";
 import { Result } from "typescript-result";
-import { RegisterTravelPackageRequestDto } from "../../dtos/request/TravelPackage/register-travelPackage-request.dto";
-import { RegisterTravelPackageCommand } from "../../commands/TravelPackage/register-travel-package.command";
-import { RegisterTravelPackageResponseDto } from "../../dtos/response/TravelPackage/register-travel-package-response.dto";
+import { RegisterTravelPackageRequestDto } from "../dtos/request/register-travelPackage-request.dto";
+import { RegisterTravelPackageCommand } from "../commands/register-travel-package.command";
+import { RegisterTravelPackageResponseDto } from "../dtos/response/register-travel-package-response.dto";
 @Injectable()
 export class TravelPackageApplicationService{
   constructor(

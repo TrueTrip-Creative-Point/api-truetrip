@@ -1,9 +1,9 @@
 import {Injectable} from '@nestjs/common'
 import { InjectRepository } from "@nestjs/typeorm";
-import { TravelPackageTypeORM } from "../../../infraestracture/persistence/typeorm/entities/TravelPackage/travelPackage";
+import { TravelPackageTypeORM } from "../../infrastructure/persistence/typeorm/entities/travelPackage";
 import { Repository } from "typeorm";
-import { RegisterTravelPackageRequestDto } from "../../dtos/request/TravelPackage/register-travelPackage-request.dto";
-import { AppNotification } from "../../../../common/application/app.notification";
+import { RegisterTravelPackageRequestDto } from "../dtos/request/register-travelPackage-request.dto";
+import { AppNotification } from "../../../common/application/app.notification";
 @Injectable()
 export class RegisterTravelPackageValidator{
   constructor(

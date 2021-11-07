@@ -1,4 +1,4 @@
-import { AppNotification } from "../../../../common/application/app.notification";
+import { AppNotification } from "../../../common/application/app.notification";
 import { Result } from "typescript-result";
 
 export class Description{

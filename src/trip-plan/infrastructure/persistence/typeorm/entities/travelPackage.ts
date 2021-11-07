@@ -1,9 +1,9 @@
 import { Column, Entity, Unique } from "typeorm";
 import { TravelPackageIdTypeORM } from "./travelPackage.id.typeorm";
-import { DescriptionTypeorm } from "../../../../../../common/infrastracture/TravelPackage/persistence/typeorm/entities/description.typeorm";
-import { AmountPeopleTypeORM } from "../../../../../../common/infrastracture/TravelPackage/persistence/typeorm/entities/amount_people.typeorm";
-import { PromotionTypeorm } from "../../../../../../common/infrastracture/TravelPackage/persistence/typeorm/entities/promotion.typeorm";
-import { UrlImageTypeorm } from "../../../../../../common/infrastracture/TravelPackage/persistence/typeorm/entities/url_image.typeorm";
+import { DescriptionTypeorm } from "../../../../../common/infrastructure/persistence/typeorm/entities/description.typeorm";
+import { AmountPeopleTypeORM } from "../../../../../common/infrastructure/persistence/typeorm/entities/amount_people.typeorm";
+import { PromotionTypeorm } from "../../../../../common/infrastructure/persistence/typeorm/entities/promotion.typeorm";
+import { UrlImageTypeorm } from "../../../../../common/infrastructure/persistence/typeorm/entities/url_image.typeorm";
 
 @Entity('travel_plan')
 export class TravelPackageTypeORM{

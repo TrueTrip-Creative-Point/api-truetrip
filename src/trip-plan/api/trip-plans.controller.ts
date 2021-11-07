@@ -1,12 +1,12 @@
 import { Body, Controller, Get, Post, Res } from "@nestjs/common";
-import { TravelPackageApplicationService } from "../application/services/TravelPackage/travel-package-application.service";
+import { TravelPackageApplicationService } from "../application/services/travel-package-application.service";
 import { QueryBus } from "@nestjs/cqrs";
-import { RegisterTravelPackageRequestDto } from "../application/dtos/request/TravelPackage/register-travelPackage-request.dto";
+import { RegisterTravelPackageRequestDto } from "../application/dtos/request/register-travelPackage-request.dto";
 import { AppNotification } from "../../common/application/app.notification";
-import { RegisterTravelPackageResponseDto } from "../application/dtos/response/TravelPackage/register-travel-package-response.dto";
+import { RegisterTravelPackageResponseDto } from "../application/dtos/response/register-travel-package-response.dto";
 import { Result } from "typescript-result";
 import { ApiController } from "../../common/api/api.controller";
-import { GetTravelPackageQuery } from "../application/queries/TravelPackage/get-travel-package.query";
+import { GetTravelPackageQuery } from "../application/queries/get-travel-package.query";
 @Controller('trip-plans')
 export class TripPlansController{
   constructor(

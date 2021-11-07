@@ -1,6 +1,6 @@
 import { IEventHandler } from '@nestjs/cqrs';
 import { EventsHandler } from '@nestjs/cqrs/dist/decorators/events-handler.decorator';
-import { TravelPackageEvent } from "../../../../domain/TravelPackage/events/travel-package.event";
+import { TravelPackageEvent } from "../../../domain/events/travel-package.event";
 
 @EventsHandler(TravelPackageEvent)
 export class TravelPackageRegisteredHandler implements IEventHandler<TravelPackageEvent> {
