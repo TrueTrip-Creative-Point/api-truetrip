@@ -16,9 +16,7 @@ export class Ruc {
     if (ruc === "") {
       notification.addError('ruc is required', null);
     }
-    if (ruc.length != this.MAX_LENGTH) {
-      notification.addError('ruc field must have ' + Ruc.MAX_LENGTH + ' characters', null);
-    }
+
     const regExp = new RegExp('^[0-9]+$');
     if (regExp.test(ruc) === false) {
       notification.addError('ruc format is invalid', null);

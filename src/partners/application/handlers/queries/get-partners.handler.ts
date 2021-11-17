@@ -14,15 +14,16 @@ export class GetPartnersHandler implements IQueryHandler<GetPartnersQuery> {
       id,
       first_name as firstName,
       last_name as lastName,
-      dni
-      company_name as companyName,
-      phone_number as phoneNumber,
+      dni,
+      companyName as companyName,
+      phoneNumber as phoneNumber,
       email
   
     FROM 
-      partners
+     partners
     ORDER BY
-      last_name, first_name;`;
+      last_name, first_name;
+    `;
     const ormPartners = await manager.query(sql);
     if (ormPartners.length <= 0) {
       return [];

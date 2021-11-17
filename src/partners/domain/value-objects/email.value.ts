@@ -20,13 +20,8 @@ export class Email {
     if (value === "") {
       notification.addError('email is required', null);
     }
-    if (value.length != this.MAX_LENGTH) {
-      notification.addError('email field must have ' + Email.MAX_LENGTH + ' characters', null);
-    }
-    const regExp = new RegExp('^[0-9]+$');
-    if (regExp.test(value) === false) {
-      notification.addError('email format is invalid', null);
-    }
+
+
     if (notification.hasErrors()) {
       return Result.error(notification);
     }

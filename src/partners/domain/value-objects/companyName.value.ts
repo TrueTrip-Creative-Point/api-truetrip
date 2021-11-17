@@ -20,13 +20,8 @@ export class CompanyName {
     if (value === "") {
       notification.addError('companyName is required', null);
     }
-    if (value.length != this.MAX_LENGTH) {
-      notification.addError('companyName field must have ' + CompanyName.MAX_LENGTH + ' characters', null);
-    }
-    const regExp = new RegExp('^[0-9]+$');
-    if (regExp.test(value) === false) {
-      notification.addError('companyName format is invalid', null);
-    }
+
+
     if (notification.hasErrors()) {
       return Result.error(notification);
     }
