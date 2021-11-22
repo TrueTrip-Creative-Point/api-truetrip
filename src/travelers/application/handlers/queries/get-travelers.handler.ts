@@ -14,14 +14,13 @@ export class GetTravelersHandler implements IQueryHandler<GetTravelersQuery> {
       id,
       first_name as firstName,
       last_name as lastName,
-      dni
+      dni,
       phone_number as phoneNumber,
       email
   
     FROM 
       travelers
-    ORDER BY
-      last_name, first_name;`;
+    `;
     const ormTravelers = await manager.query(sql);
     if (ormTravelers.length <= 0) {
       return [];

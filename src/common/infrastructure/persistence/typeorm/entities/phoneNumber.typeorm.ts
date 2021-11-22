@@ -1,7 +1,7 @@
 import { Column, Unique } from 'typeorm';
 
 export class PhoneNumberTypeORM {
-  @Column('varchar', { name: 'phoneNumber', length: 8, nullable: false })
+  @Column('varchar', { name: 'phone_number', length: 9, nullable: false })
   value: string;
 
   private constructor(value: string) {

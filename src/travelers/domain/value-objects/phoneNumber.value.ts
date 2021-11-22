@@ -3,7 +3,7 @@ import { Result } from "typescript-result";
 
 export class PhoneNumber {
   private readonly value: string;
-  private static MAX_LENGTH: number = 8;
+  private static MAX_LENGTH: number = 9;
 
   private constructor(value: string) {
     this.value = value;
