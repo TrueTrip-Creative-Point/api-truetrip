@@ -14,7 +14,7 @@ export class GetPartnersHandler implements IQueryHandler<GetPartnersQuery> {
       id,
       first_name as firstName,
       last_name as lastName,
-      dni
+      dni,
       company_name as companyName,
       phone_number as phoneNumber,
       email

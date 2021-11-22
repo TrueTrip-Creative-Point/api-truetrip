@@ -3,7 +3,7 @@ import { Result } from "typescript-result";
 
 export class Email {
   private readonly value: string;
-  private static MAX_LENGTH: number = 8;
+  private static MAX_LENGTH: number = 70;
 
   private constructor(value: string) {
     this.value = value;
@@ -20,13 +20,8 @@ export class Email {
     if (value === "") {
       notification.addError('email is required', null);
     }
-    if (value.length != this.MAX_LENGTH) {
-      notification.addError('email field must have ' + Email.MAX_LENGTH + ' characters', null);
-    }
-    const regExp = new RegExp('^[0-9]+$');
-    if (regExp.test(value) === false) {
-      notification.addError('email format is invalid', null);
-    }
+
+
     if (notification.hasErrors()) {
       return Result.error(notification);
     }
