@@ -18,11 +18,11 @@ export class GetPartnersHandler implements IQueryHandler<GetPartnersQuery> {
       company_name as companyName,
       phone_number as phoneNumber,
       email
-  
-    FROM 
-      partners
+     FROM 
+     partners
     ORDER BY
-      last_name, first_name;`;
+      last_name, first_name;
+    `;
     const ormPartners = await manager.query(sql);
     if (ormPartners.length <= 0) {
       return [];

@@ -21,7 +21,6 @@ export class CompanyName {
       notification.addError('companyName is required', null);
     }
 
- 
     if (notification.hasErrors()) {
       return Result.error(notification);
     }
