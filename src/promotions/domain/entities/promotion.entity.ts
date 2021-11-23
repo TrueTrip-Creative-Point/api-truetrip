@@ -13,7 +13,8 @@ export class Promotion extends AggregateRoot{
   private promotionDate:PromotionDate;
   private partnerId:promotionPartnerId;
 
-  public constructor (id: PromotionId, title: promotionTitle, content: promotionContent, promotionDate: PromotionDate,partnerId:promotionPartnerId) {
+  public constructor (id: PromotionId, title: promotionTitle,
+                      content: promotionContent, promotionDate: PromotionDate,partnerId:promotionPartnerId) {
     super();
     this.id = id;
     this.title = title;
@@ -25,7 +26,14 @@ export class Promotion extends AggregateRoot{
     const event = new PromotionRegisteredEvent(this.id.getValue(),this.title.getValue(),this.content.getValue(),this.promotionDate.getPromotionStartDate(),this.promotionDate.getPromotionEndDate(),this.partnerId.getValue());
     this.apply(event);
   }
-
+  public update(id: PromotionId, title: promotionTitle,
+                content: promotionContent, promotionDate: PromotionDate,partnerId:promotionPartnerId) {
+    this.id = id;
+    this.title = title;
+    this.content = content;
+    this.promotionDate = promotionDate;
+    this.partnerId=partnerId;
+  }
   public getId(): PromotionId {
     return this.id;
   }
