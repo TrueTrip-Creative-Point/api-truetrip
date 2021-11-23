@@ -9,11 +9,11 @@ import { TravelPackageEvent } from "../events/travel-package.event";
 
 
 export class TravelPackageEntity extends AggregateRoot{
-  private id: TravelPackageId;
-  private amount:Amount_people;
-  private description:Description;
-  private promotion:Promotion;
-  private url:UrlImage;
+  private readonly id: TravelPackageId;
+  private readonly amount:Amount_people;
+  private readonly description:Description;
+  private readonly promotion:Promotion;
+  private readonly url:UrlImage;
   public constructor(id: TravelPackageId,amount:Amount_people,description:Description,promotion:Promotion,url:UrlImage){
     super();
     this.id=id;
