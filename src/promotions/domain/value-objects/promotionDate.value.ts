@@ -32,5 +32,19 @@ export class PromotionDate{
     }
     return Result.ok(new PromotionDate(promotionStartDate, promotionEndDate));
   }
-
+  public static update(promotionStartDate: string, promotionEndDate: string): Result<AppNotification, PromotionDate> {
+    let notification: AppNotification = new AppNotification();
+    promotionStartDate = (promotionStartDate ?? "").trim();
+    promotionEndDate = (promotionEndDate ?? "").trim();
+    if (promotionStartDate === "") {
+      notification.addError('promotion start Date is required', null);
+    }
+    if (promotionEndDate === "") {
+      notification.addError('promotion end Date is required', null);
+    }
+    if (notification.hasErrors()) {
+      return Result.error(notification);
+    }
+    return Result.ok(new PromotionDate(promotionStartDate, promotionEndDate));
+  }
 }
