@@ -16,7 +16,7 @@ import { PromotionMapper } from "../../mappers/promotion.mapper";
 import { PromotionId } from "../../../domain/value-objects/promotionId.value";
 
 @CommandHandler(EditPromotionCommand)
-
+//
 export class UpdatePromotionHandler
   implements ICommandHandler<CreatePromotionCommand> {
   constructor(
