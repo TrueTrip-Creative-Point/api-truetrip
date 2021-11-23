@@ -35,10 +35,6 @@ export class RegisterPartnerHandler
       return 0;
     }
 
-
-
-
-
 const companyNameResult: Result<AppNotification, CompanyName> = CompanyName.create(command.companyName);
     if (companyNameResult.isFailure()) {
       return 0;
