@@ -6,14 +6,15 @@ import { Description } from "../value-objects/description.value";
 import { Promotion } from "../value-objects/promotion.value";
 import { UrlImage } from "../value-objects/url_image.value";
 import { TravelPackageEvent } from "../events/travel-package.event";
+import { PartnerId } from "../../../partners/domain/value-objects/partner-id.value";
 
 
 export class TravelPackageEntity extends AggregateRoot{
   private id: TravelPackageId;
-  private amount:Amount_people;
-  private description:Description;
-  private promotion:Promotion;
-  private url:UrlImage;
+  private readonly amount:Amount_people;
+  private readonly description:Description;
+  private readonly promotion:Promotion;
+  private readonly url:UrlImage;
   public constructor(id: TravelPackageId,amount:Amount_people,description:Description,promotion:Promotion,url:UrlImage){
     super();
     this.id=id;
@@ -31,5 +32,7 @@ export class TravelPackageEntity extends AggregateRoot{
   public getDescription(){return this.description;}
   public getPromotion(){return this.promotion;}
   public getUrl(){return this.url;}
-
+  public changeId(id: TravelPackageId) {
+    this.id = id;
+  }
 }

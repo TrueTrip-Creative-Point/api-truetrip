@@ -1,5 +1,6 @@
 export class EditPromotionRequestDto {
   constructor(
+    public  id:number,
     public readonly title: string,
     public readonly content: string,
     public readonly promotionStartDate: string,

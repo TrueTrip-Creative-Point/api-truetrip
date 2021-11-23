@@ -2,14 +2,15 @@ import { AppNotification } from "../../../common/application/app.notification";
 import { Result } from "typescript-result";
 
 export class UrlImage{
-  private readonly url:string;
-  private constructor(url:string){
+  private url:string;
+  public constructor(url:string){
     this.url=url;
   }
 
   public getValue(): string {
     return this.url;
   }
+  public setValue(value: string):void{this.url=value;}
   public static create(value: string): Result<AppNotification, UrlImage>
   {
     let notification: AppNotification = new AppNotification();

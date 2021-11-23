@@ -1,1 +1,1 @@
-export class GetTravelPackageQuery{}
+export class GetTravelPackageQuery {}

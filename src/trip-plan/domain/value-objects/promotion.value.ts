@@ -2,15 +2,16 @@ import { AppNotification } from "../../../common/application/app.notification";
 import { Result } from "typescript-result";
 
 export class Promotion{
-  private readonly value:string;
+  private  value:string;
   private static MAX_LENGTH: number = 300;
-  private constructor(value:string){
+  public constructor(value:string){
     this.value=value;
   }
 
   public getValue(): string {
     return this.value;
   }
+  public setValue(value: string):void{this.value=value;}
   public static create(value: string): Result<AppNotification, Promotion>
   {
     let notification: AppNotification = new AppNotification();

@@ -7,7 +7,7 @@ import { RegisterTravelPackageResponseDto } from "../application/dtos/response/r
 import { Result } from "typescript-result";
 import { ApiController } from "../../common/api/api.controller";
 import { GetTravelPackageQuery } from "../application/queries/get-travel-package.query";
-@Controller('trip-plans')
+@Controller('tripPlans')
 export class TripPlansController{
   constructor(
       private readonly travelPackageService:TravelPackageApplicationService,

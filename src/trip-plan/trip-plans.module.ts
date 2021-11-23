@@ -10,6 +10,7 @@ import { TripPlansController } from "./api/trip-plans.controller";
 import { Module } from "@nestjs/common";
 import { TravelPackageApplicationService } from "./application/services/travel-package-application.service";
 import { RegisterTravelPackageValidator } from "./application/validators/travelPackage.validator";
+import { DestinationTypeORM } from "./infrastructure/persistence/typeorm/entities/destination.typeorm";
 
 
 export const CommandHandlers=[RegisterTravelPackageHandler];
@@ -19,7 +20,7 @@ export const QueryHandlers=[GetTravelPackageHandler];
 @Module({
   imports:[
     CqrsModule,
-    TypeOrmModule.forFeature([TravelPackageTypeORM])
+    TypeOrmModule.forFeature([TravelPackageTypeORM, DestinationTypeORM])
   ],
   controllers:[TripPlansController],
   providers:[

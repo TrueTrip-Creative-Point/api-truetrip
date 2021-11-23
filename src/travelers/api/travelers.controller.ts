@@ -1,4 +1,4 @@
-import { Controller, Post, Body, Res, Get } from '@nestjs/common';
+import { Controller, Post, Body, Res, Get, Param } from '@nestjs/common';
 import { RegisterTravelerRequestDto } from '../application/dtos/request/register-traveler-request.dto';
 import { RegisterTravelerResponseDto } from '../application/dtos/response/register-traveler-response.dto';
 import { TravelersApplicationService } from '../application/services/travelers-application.service';
@@ -6,6 +6,7 @@ import { Result } from 'typescript-result';
 import { AppNotification } from '../../common/application/app.notification';
 import { ApiController } from '../../common/api/api.controller';
 import { QueryBus } from '@nestjs/cqrs';
+import { GetTravelerByIdQuery } from '../application/queries/get-traveler-by-id.query';
 import { GetTravelersQuery } from '../application/queries/get-travelers.query';
 
 @Controller('travelers')
@@ -35,6 +36,16 @@ export class TravelersController {
   async getTravelers(@Res({ passthrough: true }) response): Promise<object> {
     try {
       const travelers = await this.queryBus.execute(new GetTravelersQuery());
+      return ApiController.ok(response, travelers);
+    } catch (error) {
+      return ApiController.serverError(response, error);
+    }
+  }
+
+  @Get('/:id')
+  async getById(@Param('id') travelerId: number, @Res({ passthrough: true }) response): Promise<object> {
+    try {
+      const travelers = await this.queryBus.execute(new GetTravelerByIdQuery(travelerId));
       return ApiController.ok(response, travelers);
     } catch (error) {
       return ApiController.serverError(response, error);
