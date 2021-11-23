@@ -7,6 +7,7 @@ import { PhoneNumber } from '../value-objects/phoneNumber.value';
 import { Email } from '../value-objects/email.value';
 import { Name } from '../../../common/domain/value-objects/name.value';
 
+
 export class Partner extends AggregateRoot {
   private id: PartnerId;
   private name: Name;
@@ -31,6 +32,14 @@ export class Partner extends AggregateRoot {
     this.apply(event);
   }
 
+  public update(id: PartnerId, name: Name, dni: Dni, companyName: CompanyName, phoneNumber:PhoneNumber,email:Email) {
+    this.id = id;
+    this.name = name;
+    this.dni = dni;
+    this.companyName = companyName;
+    this.phoneNumber = phoneNumber;
+    this.email =email;
+  }
   public getId(): PartnerId {
     return this.id;
   }

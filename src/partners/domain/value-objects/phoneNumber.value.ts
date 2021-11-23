@@ -3,7 +3,7 @@ import { Result } from "typescript-result";
 
 export class PhoneNumber {
   private readonly value: string;
-  private static MAX_LENGTH: number = 8;
+  private static MAX_LENGTH: number = 9;
 
   private constructor(value: string) {
     this.value = value;
@@ -20,9 +20,7 @@ export class PhoneNumber {
     if (value === "") {
       notification.addError('phoneNumber is required', null);
     }
-    if (value.length != this.MAX_LENGTH) {
-      notification.addError('phoneNumber field must have ' + PhoneNumber.MAX_LENGTH + ' characters', null);
-    }
+
     const regExp = new RegExp('^[0-9]+$');
     if (regExp.test(value) === false) {
       notification.addError('phoneNumber format is invalid', null);
