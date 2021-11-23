@@ -1,22 +1,23 @@
 import { CommandHandler, EventPublisher, ICommandHandler } from '@nestjs/cqrs';
+import { EditPartnerCommand } from '../../commands/EditPartnerCommand';
+import { RegisterPartnerCommand } from '../../commands/register-partner.command';
+import { PartnerTypeORM } from '../../../infrastructure/persistence/typeorm/entities/partner.typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Partner } from 'src/partners/domain/entities/partner.entity';
-import { RegisterPartnerCommand } from 'src/partners/application/commands/register-partner.command';
 import { Repository } from 'typeorm';
+import { Result } from 'typescript-result';
+import { Partner } from '../../../domain/entities/partner.entity';
 import { PartnerFactory } from '../../../domain/factories/partner.factory';
-import { PartnerId } from '../../../domain/value-objects/partner-id.value';
+import { PartnerMapper } from '../../mappers/partner.mapper';
+import { AppNotification } from '../../../../common/application/app.notification';
 import { Dni } from '../../../domain/value-objects/dni.value';
 import { CompanyName } from '../../../domain/value-objects/companyName.value';
 import { PhoneNumber } from '../../../domain/value-objects/phoneNumber.value';
 import { Email } from '../../../domain/value-objects/email.value';
-import { Result } from 'typescript-result';
-import { AppNotification } from '../../../../common/application/app.notification';
-import { PartnerTypeORM } from '../../../infrastructure/persistence/typeorm/entities/partner.typeorm';
 import { Name } from '../../../../common/domain/value-objects/name.value';
-import { PartnerMapper } from '../../mappers/partner.mapper';
+import { PartnerId } from '../../../domain/value-objects/partner-id.value';
+@CommandHandler(EditPartnerCommand)
 
-@CommandHandler(RegisterPartnerCommand)
-export class RegisterPartnerHandler
+export class UpdatePartnerHandler
   implements ICommandHandler<RegisterPartnerCommand> {
   constructor(
     @InjectRepository(PartnerTypeORM)
@@ -24,8 +25,7 @@ export class RegisterPartnerHandler
     private publisher: EventPublisher,
   ) {
   }
-
-  async execute(command: RegisterPartnerCommand) {
+  async execute(command: EditPartnerCommand) {
     const dniResult: Result<AppNotification, Dni> = Dni.create(command.dni);
     if (dniResult.isFailure()) {
       return 0;
@@ -36,8 +36,7 @@ export class RegisterPartnerHandler
     }
 
 
-
-const companyNameResult: Result<AppNotification, CompanyName> = CompanyName.create(command.companyName);
+    const companyNameResult: Result<AppNotification, CompanyName> = CompanyName.create(command.companyName);
     if (companyNameResult.isFailure()) {
       return 0;
     }
@@ -46,23 +45,25 @@ const companyNameResult: Result<AppNotification, CompanyName> = CompanyName.crea
       return 0;
     }
 
- const emailResult: Result<AppNotification, Email> = Email.create(command.email);
+    const emailResult: Result<AppNotification, Email> = Email.create(command.email);
     if (emailResult.isFailure()) {
       return 0;
     }
 
-
-    let partner: Partner = PartnerFactory.createFrom(nameResult.value, dniResult.value,companyNameResult.value,phoneNumberResult.value,emailResult.value);
-    let partnerTypeORM = PartnerMapper.toTypeORM(partner);
-    partnerTypeORM = await this.partnerRepository.save(partnerTypeORM);
-    if (partnerTypeORM == null) {
+    const IdResult:Result<AppNotification, PartnerId> = PartnerId.update(command.id);
+    if (IdResult.isFailure()) {
       return 0;
     }
-    const partnerId:number = Number(partnerTypeORM.id.value);
-    partner.changeId(PartnerId.create(partnerId));
-    partner = this.publisher.mergeObjectContext(partner);
-    partner.register();
+
+    let partner: Partner = PartnerFactory.withId(IdResult.value,nameResult.value, dniResult.value,companyNameResult.value,phoneNumberResult.value,emailResult.value);
+    let partnerTypeORM = PartnerMapper.toTypeORM(partner);
+    let updateResult=await this.partnerRepository.update(command.id,partnerTypeORM);
+    if(updateResult==null){
+      return 0;
+    }
+    partner=this.publisher.mergeObjectContext(partner);
     partner.commit();
-    return partnerId;
+    return partner;
+
   }
 }

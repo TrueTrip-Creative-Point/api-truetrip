@@ -1,6 +1,6 @@
-export class EditPartnerRequestDto {
+export class EditPartnerCommand {
   constructor(
-    public  id: number,
+    public readonly id: number,
     public readonly firstName: string,
     public readonly lastName: string,
     public readonly dni: string,

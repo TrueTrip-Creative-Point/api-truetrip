@@ -9,9 +9,14 @@ import { PartnerRegisteredHandler } from './application/handlers/events/partner-
 import { GetPartnersHandler } from './application/handlers/queries/get-partners.handler';
 import { PartnerTypeORM } from './infrastructure/persistence/typeorm/entities/partner.typeorm';
 
-export const CommandHandlers = [RegisterPartnerHandler];
+import { UpdatePartnerHandler } from './application/handlers/commands/update-partner.handler';
+import { DeletePartnerHandler } from './application/handlers/commands/delete-partner.handler';
+
+export const CommandHandlers = [RegisterPartnerHandler,UpdatePartnerHandler,DeletePartnerHandler];
 export const EventHandlers = [PartnerRegisteredHandler];
 export const QueryHandlers = [GetPartnersHandler];
+
+
 
 @Module({
   imports: [
