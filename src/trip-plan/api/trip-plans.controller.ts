@@ -7,6 +7,11 @@ import { RegisterTravelPackageResponseDto } from "../application/dtos/response/r
 import { Result } from "typescript-result";
 import { ApiController } from "../../common/api/api.controller";
 import { GetTravelPackageQuery } from "../application/queries/get-travel-package.query";
+import { ApiOperation, ApiTags } from '@nestjs/swagger';
+
+
+@ApiTags('TripPlans')
+
 @Controller('tripPlans')
 export class TripPlansController{
   constructor(

@@ -9,7 +9,10 @@ import { QueryBus } from '@nestjs/cqrs';
 import { GetPartnersQuery } from '../application/queries/get-partners.query';
 import { EditPartnerRequestDto } from '../application/dtos/request/edit-partner-request.dto';
 import { UpdatePartnerResponseDto } from '../application/dtos/response/updatePartnerResponse';
+import { ApiOperation, ApiTags } from '@nestjs/swagger';
 
+
+@ApiTags('Partners')
 @Controller('partners')
 export class PartnersController {
   constructor(
