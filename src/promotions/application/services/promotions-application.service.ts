@@ -36,6 +36,7 @@ export class PromotionsApplicationService{
       createPromotionRequestDto.partnerId
     );
     const promotionId = await this.commandBus.execute(createPromotionCommand);
+
     const createPromotionResponseDto:CreatePromotionResponseDto=new CreatePromotionResponseDto(
       promotionId,
       createPromotionRequestDto.title,
