@@ -52,7 +52,7 @@ export class RegisterTravelerHandler
       return 0;
     }
     const travelerId:number = Number(travelerTypeORM.id.value);
-    traveler.changeId(TravelerId.create(travelerId));
+    traveler.changeId(TravelerId.create2(travelerId));
     traveler = this.publisher.mergeObjectContext(traveler);
     traveler.register();
     traveler.commit();

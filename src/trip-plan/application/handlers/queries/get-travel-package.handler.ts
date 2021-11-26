@@ -24,10 +24,11 @@ export class GetTravelPackageHandler implements IQueryHandler<GetTravelPackageQu
     const travel_plans: GetTravelPackageDto[] = ormPartners.map(function (ormPartner) {
       let travel_planDto = new GetTravelPackageDto();
       travel_planDto.id = Number(ormPartner.id);
-      travel_planDto.amount = Number(ormPartner.amount);
+      travel_planDto.amount_people = Number(ormPartner.amount_people);
       travel_planDto.description=ormPartner.description;
       travel_planDto.promotion=ormPartner.promotion;
-      travel_planDto.url=ormPartner.url;
+      travel_planDto.url_image=ormPartner.url_image;
+      travel_planDto.traveler_id = ormPartner.traveler_id
 
       return travel_planDto;
     });

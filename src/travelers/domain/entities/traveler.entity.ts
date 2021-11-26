@@ -5,9 +5,11 @@ import { Dni } from '../value-objects/dni.value';
 import { PhoneNumber } from '../value-objects/phoneNumber.value';
 import { Email } from '../value-objects/email.value';
 import { Name } from '../../../common/domain/value-objects/name.value';
+import { Result } from 'typescript-result';
+import { AppNotification } from '../../../common/application/app.notification';
 
 export class Traveler extends AggregateRoot {
-  private id: TravelerId;
+  private id:  TravelerId;
   private name: Name;
   private dni: Dni;
   private phoneNumber: PhoneNumber;
@@ -48,7 +50,7 @@ public getEmail(): Email {
     return this.email;
   }
 
-  public changeId(id: TravelerId) {
+  public changeId(id:TravelerId) {
     this.id = id;
   }
 

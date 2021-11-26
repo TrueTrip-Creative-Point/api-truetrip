@@ -22,10 +22,10 @@ export class PromotionDate{
     promotionStartDate = (promotionStartDate ?? "").trim();
     promotionEndDate = (promotionEndDate ?? "").trim();
     if (promotionStartDate === "") {
-      notification.addError('promotion start Date is required', null);
+      notification.addError('value start Date is required', null);
     }
     if (promotionEndDate === "") {
-      notification.addError('promotion end Date is required', null);
+      notification.addError('value end Date is required', null);
     }
     if (notification.hasErrors()) {
       return Result.error(notification);

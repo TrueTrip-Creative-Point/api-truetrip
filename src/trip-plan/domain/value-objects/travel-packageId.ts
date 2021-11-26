@@ -15,4 +15,11 @@ export class TravelPackageId{
   public static create(value:number){
     return new TravelPackageId(value);
   }
+  public static of(value: number): TravelPackageId {
+    return new TravelPackageId(value);
+  }
+  public static update(value:number): Result<AppNotification, TravelPackageId> {
+    let notification: AppNotification = new AppNotification()
+    return Result.ok(new TravelPackageId(value));
+  }
 }

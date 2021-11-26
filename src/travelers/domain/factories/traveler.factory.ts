@@ -9,7 +9,7 @@ import { Name } from '../../../common/domain/value-objects/name.value';
 
 export class TravelerFactory {
   public static createFrom(name: Name, dni: Dni, phoneNumber:PhoneNumber,email:Email): Traveler {
-    return new Traveler(TravelerId.create(0), name, dni,phoneNumber,email);
+    return new Traveler(TravelerId.create2(0), name, dni,phoneNumber,email);
   }
 
   public static withId(travelerId: TravelerId, name: Name, dni: Dni, phoneNumber:PhoneNumber,email:Email): Traveler  {
