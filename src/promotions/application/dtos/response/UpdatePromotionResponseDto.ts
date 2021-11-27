@@ -1,6 +1,6 @@
-export class EditPromotionRequestDto {
+export class UpdatePromotionResponseDto {
   constructor(
-    public  id:number,
+    public id: number,
     public readonly title: string,
     public readonly content: string,
     public readonly promotionStartDate: string,

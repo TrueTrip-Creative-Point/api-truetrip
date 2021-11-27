@@ -8,15 +8,18 @@ import { PromotionsApplicationService } from './application/services/promotions-
 import { CreatePromotionValidator } from './application/validators/create-promotion.validator';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { CqrsModule } from '@nestjs/cqrs';
+import { UpdatePromotionHandler } from "./application/handlers/commands/update-promotion.handler";
+import { DeletePromotionHandler } from "./application/handlers/commands/delete-promotion.handler";
+import { PartnerTypeORM } from "../partners/infrastructure/persistence/typeorm/entities/partner.typeorm";
 
-export const CommandHandlers = [CreatePromotionHandler];
+export const CommandHandlers = [CreatePromotionHandler,UpdatePromotionHandler,DeletePromotionHandler];
 export const EventHandlers = [PromotionCreatedHandler];
 export const QueryHandlers = [GetPromotionsHandler];
 
 @Module({
   imports: [
     CqrsModule,
-    TypeOrmModule.forFeature([PromotionTypeORM]),
+    TypeOrmModule.forFeature([PromotionTypeORM,PartnerTypeORM])
   ],
   controllers: [PromotionsController],
   providers: [

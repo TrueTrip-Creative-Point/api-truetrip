@@ -8,10 +8,11 @@ import { RegisterTravelerHandler } from './application/handlers/commands/registe
 import { TravelerRegisteredHandler } from './application/handlers/events/traveler-registered.handler';
 import { GetTravelersHandler } from './application/handlers/queries/get-travelers.handler';
 import { TravelerTypeORM } from './infrastructure/persistence/typeorm/entities/traveler.typeorm';
+import { GetTravelerByIdHandler } from './application/handlers/queries/get-traveler-by-id.handler';
 
 export const CommandHandlers = [RegisterTravelerHandler];
 export const EventHandlers = [TravelerRegisteredHandler];
-export const QueryHandlers = [GetTravelersHandler];
+export const QueryHandlers = [GetTravelersHandler, GetTravelerByIdHandler];
 
 @Module({
   imports: [

@@ -1,6 +1,6 @@
-export class EditPartnerRequestDto {
+export class UpdatePartnerResponseDto {
   constructor(
-    public  id: number,
+    public id: number,
     public readonly firstName: string,
     public readonly lastName: string,
     public readonly dni: string,
