@@ -10,6 +10,9 @@ import { GetTravelPackageQuery } from "../application/queries/get-travel-package
 
 import { EditTravelPackageRequestDto } from '../application/dtos/request/edit-travelPackage-request.dto';
 import { UpdateTravelPackageResponseDto } from '../application/dtos/response/update-travel-package-response.dto';
+import { ApiTags } from '@nestjs/swagger';
+
+@ApiTags('TripPlans')
 @Controller('tripPlans')
 export class TripPlansController{
   constructor(

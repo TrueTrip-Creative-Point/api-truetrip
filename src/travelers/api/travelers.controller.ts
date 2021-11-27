@@ -9,6 +9,10 @@ import { QueryBus } from '@nestjs/cqrs';
 import { GetTravelerByIdQuery } from '../application/queries/get-traveler-by-id.query';
 import { GetTravelersQuery } from '../application/queries/get-travelers.query';
 
+import { ApiOperation, ApiTags } from '@nestjs/swagger';
+
+
+@ApiTags('Travelers')
 @Controller('travelers')
 export class TravelersController {
   constructor(

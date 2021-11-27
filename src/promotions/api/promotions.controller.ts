@@ -11,6 +11,10 @@ import { GetPromotionsQuery } from '../application/queries/get-promotions.query'
 import { EditPromotionRequestDto } from "../application/dtos/request/edit-promotion-request.dto";
 import { UpdatePromotionResponseDto } from "../application/dtos/response/UpdatePromotionResponseDto";
 
+import { ApiOperation, ApiTags } from '@nestjs/swagger';
+
+
+@ApiTags('Promotions')
 @Controller('promotions')
 export class PromotionsController{
   constructor(
