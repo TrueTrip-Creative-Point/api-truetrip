@@ -2,10 +2,9 @@ import { Column, Entity, PrimaryGeneratedColumn, Unique } from 'typeorm';
 import { PartnerIdTypeORM } from './partner.id.typeorm';
 import { NameTypeORM } from '../../../../../common/infrastructure/persistence/typeorm/entities/name.typeorm';
 import { DniTypeORM } from '../../../../../common/infrastructure/persistence/typeorm/entities/dni.typeorm';
-
-import { CompanyNameTypeORM } from '../../../../../common/infrastructure/persistence/typeorm/entities/companyName.typeorm';
-import { PhoneNumberTypeORM } from '../../../../../common/infrastructure/persistence/typeorm/entities/PhoneNumber.typeorm';
 import { EmailTypeORM } from '../../../../../common/infrastructure/persistence/typeorm/entities/email.typeorm';
+import { CompanyNameTypeORM } from '../../../../../common/infrastructure/persistence/typeorm/entities/company-name.typeorm';
+import { PhoneNumberTypeORM } from '../../../../../common/infrastructure/persistence/typeorm/entities/phone-number.typeorm';
 
 @Entity('partners')
 @Unique('UQ_partners_dni', ['dni.value'])
