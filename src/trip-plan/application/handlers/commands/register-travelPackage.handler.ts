@@ -13,6 +13,7 @@ import { TravelPackageEntity } from "../../../domain/entities/TravelPackage.enti
 import { TravelPackageFactory } from "../../../domain/factories/travel-package.factory";
 import { TravelPackageMapper } from "../../mappers/travel-package.mapper";
 import { TravelPackageId } from "../../../domain/value-objects/travel-packageId";
+import { TravelerId } from '../../../../travelers/domain/value-objects/traveler-id.value';
 
 @CommandHandler(RegisterTravelPackageCommand)
 export class RegisterTravelPackageHandler
@@ -33,9 +34,10 @@ export class RegisterTravelPackageHandler
    const url:Result<AppNotification,UrlImage>=UrlImage.create(command.url_image);
    if(url.isFailure()){return 0;}
 
+   const travelerIdResult:Result<AppNotification,TravelerId>=TravelerId.create(command.traveler_id);
+   if(travelerIdResult.isFailure()){return 0;}
 
-
-   let travel: TravelPackageEntity = TravelPackageFactory.createFrom(amountPeopleResult.value,descriptionResult.value,promotionResult.value,url.value);
+   let travel: TravelPackageEntity = TravelPackageFactory.createFrom(amountPeopleResult.value,descriptionResult.value,promotionResult.value,url.value,travelerIdResult.value);
    let travelTypeORM = TravelPackageMapper.toTypeORM(travel);
    travelTypeORM = await this.travelPackageRepository.save(travelTypeORM);
    if (travelTypeORM == null) {

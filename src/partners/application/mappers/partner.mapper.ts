@@ -3,9 +3,9 @@ import { PartnerTypeORM } from '../../infrastructure/persistence/typeorm/entitie
 import { PartnerIdTypeORM } from '../../infrastructure/persistence/typeorm/entities/partner.id.typeorm';
 import { NameTypeORM } from '../../../common/infrastructure/persistence/typeorm/entities/name.typeorm';
 import { DniTypeORM } from '../../../common/infrastructure/persistence/typeorm/entities/dni.typeorm';
-import {CompanyNameTypeORM } from '../../../common/infrastructure/persistence/typeorm/entities/companyName.typeorm';
-import {PhoneNumberTypeORM } from '../../../common/infrastructure/persistence/typeorm/entities/phoneNumber.typeorm';
 import {EmailTypeORM } from '../../../common/infrastructure/persistence/typeorm/entities/email.typeorm';
+import { CompanyNameTypeORM } from '../../../common/infrastructure/persistence/typeorm/entities/company-name.typeorm';
+import { PhoneNumberTypeORM } from '../../../common/infrastructure/persistence/typeorm/entities/phone-number.typeorm';
 
 export class PartnerMapper {
   public static toTypeORM(partner: Partner): PartnerTypeORM {

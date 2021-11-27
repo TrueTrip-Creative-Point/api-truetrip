@@ -1,4 +1,4 @@
-import { Column, Unique } from 'typeorm';
+import { Column } from 'typeorm';
 
 export class PhoneNumberTypeORM {
   @Column('varchar', { name: 'phone_number', length: 9, nullable: false })

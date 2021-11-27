@@ -3,8 +3,8 @@ import { TravelerTypeORM } from '../../infrastructure/persistence/typeorm/entiti
 import { TravelerIdTypeORM } from '../../infrastructure/persistence/typeorm/entities/traveler.id.typeorm';
 import { NameTypeORM } from '../../../common/infrastructure/persistence/typeorm/entities/name.typeorm';
 import { DniTypeORM } from '../../../common/infrastructure/persistence/typeorm/entities/dni.typeorm';
-import { PhoneNumberTypeORM } from '../../../common/infrastructure/persistence/typeorm/entities/phoneNumber.typeorm';
 import { EmailTypeORM } from '../../../common/infrastructure/persistence/typeorm/entities/email.typeorm';
+import { PhoneNumberTypeORM } from '../../../common/infrastructure/persistence/typeorm/entities/phone-number.typeorm';
 
 export class TravelerMapper {
   public static toTypeORM(traveler: Traveler): TravelerTypeORM {

@@ -5,6 +5,7 @@ import { Amount_people } from "../../value-objects/amount_people.value";
 import { UrlImage } from "../../value-objects/url_image.value";
 import { Promotion } from "../../value-objects/promotion.value";
 import { TravelPackageId } from "../../value-objects/travel-packageId";
+import { TravelerId } from '../../../../travelers/domain/value-objects/traveler-id.value';
 
 
 export class TravelPackageOriginator{
@@ -13,6 +14,7 @@ export class TravelPackageOriginator{
   private  url:UrlImage;
   private id: TravelPackageId;
   private promotion: Promotion;
+  private traveler_id: TravelerId;
 
   public getAmount(){return this.amount;}
   public getDescription(){return this.description;}
@@ -27,7 +29,7 @@ export class TravelPackageOriginator{
   public setPromotion(promotion: Promotion): void {this.promotion= promotion;}
 
   public toString(): string{
-    return "Travel Package with: "+ this.id + ":" + this.description + ":" + this.url + ":" + this.amount;
+    return "Travel Package with: "+ this.id + ":" + this.description + ":" + this.url + ":" + this.amount + ": from "+this.traveler_id;
   }
   public setMemento(travel_package: TravelPackageEntity): void{
     this.id= travel_package.getId();
@@ -37,7 +39,7 @@ export class TravelPackageOriginator{
   this.promotion= travel_package.getPromotion();
  }
  public createMemento(): TravelPackageEntity{
-    return new TravelPackageEntity(this.id,this.amount,this.description,this.promotion,this.url);
+    return new TravelPackageEntity(this.id,this.amount,this.description,this.promotion,this.url,this.traveler_id);
  }
 
 

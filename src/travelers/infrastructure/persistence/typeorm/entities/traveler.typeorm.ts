@@ -2,8 +2,8 @@ import { Column, Entity, PrimaryGeneratedColumn, Unique } from 'typeorm';
 import { TravelerIdTypeORM } from './traveler.id.typeorm';
 import { NameTypeORM } from '../../../../../common/infrastructure/persistence/typeorm/entities/name.typeorm';
 import { DniTypeORM } from '../../../../../common/infrastructure/persistence/typeorm/entities/dni.typeorm';
-import { PhoneNumberTypeORM } from '../../../../../common/infrastructure/persistence/typeorm/entities/PhoneNumber.typeorm';
 import { EmailTypeORM } from '../../../../../common/infrastructure/persistence/typeorm/entities/email.typeorm';
+import { PhoneNumberTypeORM } from '../../../../../common/infrastructure/persistence/typeorm/entities/phone-number.typeorm';
 
 @Entity('travelers')
 @Unique('UQ_partners_dni', ['dni.value'])

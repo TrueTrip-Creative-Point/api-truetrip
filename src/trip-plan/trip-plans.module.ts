@@ -11,9 +11,10 @@ import { Module } from "@nestjs/common";
 import { TravelPackageApplicationService } from "./application/services/travel-package-application.service";
 import { RegisterTravelPackageValidator } from "./application/validators/travelPackage.validator";
 import { DestinationTypeORM } from "./infrastructure/persistence/typeorm/entities/destination.typeorm";
+import { DeleteTravelPackageHandler } from './application/handlers/commands/deleteTravelPackage.handler';
+import { UpdateTravelPackageHandler } from './application/handlers/commands/editTravelPackage.handler';
 
-
-export const CommandHandlers=[RegisterTravelPackageHandler];
+export const CommandHandlers=[RegisterTravelPackageHandler,DeleteTravelPackageHandler,UpdateTravelPackageHandler];
 export const EventHandlers=[TravelPackageRegisteredHandler];
 export const QueryHandlers=[GetTravelPackageHandler];
 

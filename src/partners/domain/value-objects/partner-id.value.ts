@@ -18,4 +18,8 @@ export class PartnerId {
   public getValue(): number {
     return this.value;
   }
+
+  public static of(value: number): PartnerId {
+    return new PartnerId(value);
+  }
 }
