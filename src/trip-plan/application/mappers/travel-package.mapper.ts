@@ -1,4 +1,3 @@
-
 import { TravelPackageEntity } from "../../domain/entities/TravelPackage.entity";
 import { TravelPackageTypeORM } from "../../infrastructure/persistence/typeorm/entities/travelPackage";
 import { TravelPackageIdTypeORM } from "../../infrastructure/persistence/typeorm/entities/travelPackage.id.typeorm";

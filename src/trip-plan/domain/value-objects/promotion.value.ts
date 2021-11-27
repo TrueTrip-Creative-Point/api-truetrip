@@ -17,7 +17,7 @@ export class Promotion{
     let notification: AppNotification = new AppNotification();
     value = (value ?? "").trim();
     if (value.length>=this.MAX_LENGTH) {
-      notification.addError('promotion must have '+Promotion.MAX_LENGTH+'characters', null);
+      notification.addError('value must have '+Promotion.MAX_LENGTH+'characters', null);
     }
 
     if (notification.hasErrors()) {
