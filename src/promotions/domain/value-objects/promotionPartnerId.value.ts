@@ -25,4 +25,8 @@ export class promotionPartnerId{
     }
     return Result.ok(new promotionPartnerId(value));
   }
+  public static of(value: number): promotionPartnerId {
+    return new promotionPartnerId(value);
+  }
+
 }
